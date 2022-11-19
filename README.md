@@ -1,27 +1,11 @@
 # x-ui-install
 
-seakfind
-
-    Table of Contents Overview 
-
-    1. Preparation
-    2. Update Server
-    3. Install Acme Script
-    4. Get Free SSL Certificate
-    5. Run the X-UI Install Script
-    6. Common Panel Commands
-    7. First Time Login
-    8. Side Menu
-    9. Enable HTTPS on Panel
-    10. Change Admin Password
-    11. Add VLESS+XTLS Xray User
-    12. Client
-
 X-UI, a multi-user Xray graphical management panel (replacing V2-UI and V2Ray)
 Posted on 2021-10-10
 
 X-UI provides a graphical user interface for managing servers and users. You can visually build servers for Shadowsocks, V2ray, Xray, Trojan, and other popular protocols. You can also monitor VPS performance and traffic usage in real time. X-UI replaces the older V2-UI panel.
-Preparation
+
+## Preparation
 
 Before you begin, you need to do three or four things:
 
