@@ -9,12 +9,12 @@ X-UI provides a graphical user interface for managing servers and users. You can
 
 Before you begin, you need to do three or four things:
 
-    Get a virtual private server or VPS. You can get a VPS from many providers. Some popular ones are AWS, Google Cloud, Microsoft Azure, DigitalOcean, Hetzner, and Vultr. In our example we use a Debian 11 VPS, but the X-UI install script supports Ubuntu 16+, Debian 8+, or CentOS 7+. You need to have ports 80 and 443 on your VPS open for TCP input. Also open port 54321 for TCP input.
-    Get a domain name. Some low-cost registrars are Porkbun, Namesilo, and Namecheap.
-    Create a DNS A record pointing from your host name to your VPS.
-    Optionally, add your domain to Cloudflare. This will allow you to insert a content distribution network or CDN in between you and your server. However, if you are going to add a CDN, do not turn on proxying in Cloudflare until the end. For now, just use the DNS features of Cloudflare. Adding your domain to Cloudflare is optional, and you can continue to use your domain name registrar’s nameservers if you prefer. In any case, not all protocols support the use of CDN proxying.
+    1.Get a virtual private server or VPS. You can get a VPS from many providers. Some popular ones are AWS, Google Cloud, Microsoft Azure, DigitalOcean, Hetzner, and Vultr. In our example we use a Debian 11 VPS, but the X-UI install script supports Ubuntu 16+, Debian 8+, or CentOS 7+. You need to have ports 80 and 443 on your VPS open for TCP input. Also open port 54321 for TCP input.
+    2.Get a domain name. Some low-cost registrars are Porkbun, Namesilo, and Namecheap.
+    3.Create a DNS A record pointing from your host name to your VPS.
+    4.Optionally, add your domain to Cloudflare. This will allow you to insert a content distribution network or CDN in between you and your server. However, if you are going to add a CDN, do not turn on proxying in Cloudflare until the end. For now, just use the DNS features of Cloudflare. Adding your domain to Cloudflare is optional, and you can continue to use your domain name registrar’s nameservers if you prefer. In any case, not all protocols support the use of CDN proxying.
 
-Update Server
+## Update Server
 
 SSH into your server. On Windows you can use the built-in PowerShell app, or you can install a terminal emulator such as PuTTY or XSHELL.
 
@@ -22,7 +22,7 @@ SSH into a server using XSHELL
 
 Get your server up to date:
 
-apt update && apt upgrade -y
+"""apt update && apt upgrade -y"""
 
 Also install curl and socat:
 
