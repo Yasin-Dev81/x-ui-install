@@ -22,51 +22,68 @@ SSH into a server using XSHELL
 
 Get your server up to date:
 
-"""apt update && apt upgrade -y"""
+```bash
+apt update && apt upgrade -y
+```
 
 Also install curl and socat:
 
+```bash
 apt install curl socat -y
+```
 
-Install Acme Script
+## Install Acme Script
 
 Download and install the Acme script for getting a free SSL certificate:
 
+```bash
 curl https://get.acme.sh | sh
+```
 
-Get Free SSL Certificate
+## Get Free SSL Certificate
 
 Set the default provider to Let’s Encrypt:
 
+```bash
 ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+```
 
 Register your account for a free SSL certificate. In the next command, replace xxxx@xxxx.com by your actual email address:
 
+```bash
 ~/.acme.sh/acme.sh --register-account -m xxxx@xxxx.com
+```
 
 Obtain an SSL certificate. In the next command, replace host.mydomain.com by your actual host name:
 
+```bash
 ~/.acme.sh/acme.sh --issue -d host.mydomain.com --standalone
+```
 
 After a minute or so, the script terminates. On success, you will receive feedback as to the location of the certificate and key:
 
+```
 Your cert is in: /root/.acme.sh/host.mydomain.com/host.mydomain.com.cer
 Your cert key is in: /root/.acme.sh/host.mydomain.com/host.mydomain.com.key
 The intermediate CA cert is in: /root/.acme.sh/host.mydomain.com/ca.cer
 And the full chain certs is there: /root/.acme.sh/host.mydomain.com/fullchain.cer
+```
 
 You cannot use the certificate and key in their current locations, as these may be temporary. Therefore install the certificate and key to a permanent location. In the next command, replace host.mydomain.com by your actual host name:
 
 ~/.acme.sh/acme.sh --installcert -d host.mydomain.com --key-file /root/private.key --fullchain-file /root/cert.crt
 
 Install certificate and key issued by Acme script
-Run the X-UI Install Script
+
+## Run the X-UI Install Script
 
 Download and run the one-click install script provided by the developer:
 
+```bash
 bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+```
 
-Common Panel Commands
+## Common Panel Commands
 
 From the command line, you can control the server with various commands:
 Command 	Effect
@@ -81,16 +98,18 @@ x-ui log 	View X-UI log
 x-ui update 	Update the X-UI panel
 x-ui install 	Install X-UI panel
 x-ui uninstall 	Uninstall X-UI panel
-First Time Login
+
+## First Time Login
 
 You can get to the X-UI panel on your PC by opening a browser and typing your server IP address and port 54321. For example:
 
-http://123.45.67.89:54321
+```bash
+http://server-ip:54321
+```
 
 By default, the login user name is admin, and the password is also admin.
 
-First-time login to X-UI panel
-Side Menu
+## Side Menu
 
 After you have logged in, the side menu offers these options:
 Chinese 	English
@@ -100,8 +119,7 @@ Chinese 	English
 其他 	Other
 退出登录 	Sign out
 
-Side menu on X-UI panel
-Enable HTTPS on Panel
+## Enable HTTPS on Panel
 
 You will notice that, at first, you used plain text HTTP to reach the panel. This is not secure.
 
@@ -109,19 +127,29 @@ To enable HTTPS, choose 面板设置 (Panel settings).
 
 You will need to specify your certificate and key.
 
+```
 面板证书公钥文件路径
 填写一个 '/' 开头的绝对路径，重启面板生效
 Panel certificate public key file path
 Fill in an absolute path starting with'/', restart the panel to take effect
+```
 
-Fill in /root/cert.crt.
+Fill in 
+```bash
+/root/cert.crt.
+```
 
+```
 面板证书密钥文件路径
 填写一个 '/' 开头的绝对路径，重启面板生效
 Panel certificate key file path
 Fill in an absolute path starting with'/', restart the panel to take effect 
+```
 
-Fill in /root/private.key.
+Fill in 
+```bash
+/root/private.key.
+```
 
 Specifying certificate and key in X-UI panel settings
 
@@ -129,14 +157,17 @@ Save these options.
 
 Now in your SSH session issue the command:
 
+```bash
 x-ui restart
+```
 
 Now you can reach the panel using HTTPS. For example:
 
+```
 https://host.mydomain.com:54321
+```
 
-HTTPS login to X-UI panel
-Change Admin Password
+## Change Admin Password
 
 The default admin user name admin and password admin are the same for all installations. This is not secure. Input the old values of admin and admin, and choose new, unique values:
 Chinese 	English
@@ -151,8 +182,7 @@ Save the new values.
 
 Sign out, then sign in again with the new user name and password.
 
-HTTPS login with new user name and password
-Add VLESS+XTLS Xray User
+## Add VLESS+XTLS Xray User
 
 We are going to add an inbound user account using VLESS and Xray. VLESS is an an updated version of the older Vmess protocol. After several developers found flaws in Vmess protocol and showed that the Vmess protocol can be detected by deep packet inspection or DPI, VLESS was developed. (Note that it is plain Vmess that can be detected; Vmess+WS+TLS is still secure and supports the use of a CDN.) Xray core was developed as an alternative to the older V2Ray core. According to the Xray developers, Xray is more stable, better for UDP gaming, and 30% faster than V2Ray. XTLS speeds up TLS by reducing double-encryption.
 
@@ -188,20 +218,3 @@ Adding a new VLESS+XTLS user
 Save the new user.
 
 Click the 操作 (operating) button at the start of its row to display the QR code for the new user.
-
-Displaying QR code in X-UI panel
-Client
-
-Clients are available for Android, iOS, Windows, macOS, and Linux. Examples are v2rayNG, Shadowrocket, and Qv2ray.
-
-Add the profile in the QR code to your client.
-
-Example of Qv2ray client
-
-You can check that your connection is working by opening a browser and going to https://whatismyipaddress.com.
-
-whatismyipaddress.com
-Shadowsocks + V2Ray Plugin with Self-Signed Certificate
-Windows SoftEther VPN Server
-© 2021 seakfind
-Powered by Hexo & NexT.Muse
