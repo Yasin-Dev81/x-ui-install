@@ -71,7 +71,9 @@ And the full chain certs is there: /root/.acme.sh/host.mydomain.com/fullchain.ce
 
 You cannot use the certificate and key in their current locations, as these may be temporary. Therefore install the certificate and key to a permanent location. In the next command, replace host.mydomain.com by your actual host name:
 
+```bash
 ~/.acme.sh/acme.sh --installcert -d host.mydomain.com --key-file /root/private.key --fullchain-file /root/cert.crt
+```
 
 Install certificate and key issued by Acme script
 
