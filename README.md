@@ -138,7 +138,7 @@ Fill in an absolute path starting with'/', restart the panel to take effect
 
 Fill in 
 ```bash
-/root/cert.crt.
+/root/cert.crt
 ```
 
 ```
@@ -150,7 +150,7 @@ Fill in an absolute path starting with'/', restart the panel to take effect
 
 Fill in 
 ```bash
-/root/private.key.
+/root/private.key
 ```
 
 Specifying certificate and key in X-UI panel settings
